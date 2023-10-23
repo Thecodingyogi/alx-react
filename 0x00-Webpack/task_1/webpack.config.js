@@ -1,4 +1,4 @@
-const path = Require("path");
+const path = require("path");
 
 module.exports = {
   entry: "./js/dashboard_main.js",
