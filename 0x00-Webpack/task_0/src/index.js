@@ -6,7 +6,9 @@ const paragraphs = [
   'Copyright - Holberton School'
 ];
 
-paragraphs.forEach((text) => {
-  const paragraph = $('<p>').text(text);
-  $('body').append(paragraph);
+$(document).ready(function() {
+  paragraphs.forEach((text) => {
+    const paragraph = $('<p>').text(text);
+    $('body').append(paragraph);
+  });
 });
