@@ -1,5 +1,7 @@
 import $ from 'jquery';
 import _ from 'lodash';
+import logoLogo from '../assets/holberton-logo.jpg';
+import '../css/main.css';
 
 function updateCounter() {
   let count = 0;
