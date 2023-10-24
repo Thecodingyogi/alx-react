@@ -9,7 +9,7 @@ function updateCounter() {
   };
 }
 
-const debouncedClick = _.debounce(updateCounter(), 1000);
+const debouncedClick = _.debounce(updateCounter(), 500);
 
 $(document).ready(function () {
   $('body').append('<p>Holberton Dashboard</p>');
