@@ -1,15 +1,7 @@
-import $ from "jquery";
+import $ from 'jquery';
 
-
-const paragraphs = [
-  'Holberton Dashboard',
-  'Dashboard data for the students',
-  'Copyright - Holberton School'
-];
-
-$(document).ready(function() {
-  paragraphs.forEach((text) => {
-    const paragraph = $('<p>').text(text);
-    $('body').append(paragraph);
-  });
+$(document).ready(function () {
+  $('body').append('<p>Holberton Dashboard</p>');
+  $('body').append('<p>Dashboard data for the students</p>');
+  $('body').append('<p>Copyright - Holberton School</p>');
 });
