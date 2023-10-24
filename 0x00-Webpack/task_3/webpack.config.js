@@ -20,8 +20,7 @@ module.exports = {
   devtool: "inline-source-map",
   devServer: {
     contentBase: "./public",
-    port: 8564,
-    open: true
+    port: 8564
   },
   module: {
     rules: [
