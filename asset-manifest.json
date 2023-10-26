@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/alx-react/static/css/main.c6651a72.css",
-    "main.js": "/alx-react/static/js/main.af18a352.js",
+    "main.js": "/alx-react/static/js/main.42172688.js",
     "static/js/787.545aecf5.chunk.js": "/alx-react/static/js/787.545aecf5.chunk.js",
     "static/media/holberton-logo.jpg": "/alx-react/static/media/holberton-logo.24bab5d633e36ca8d17e.jpg",
     "index.html": "/alx-react/index.html",
     "main.c6651a72.css.map": "/alx-react/static/css/main.c6651a72.css.map",
-    "main.af18a352.js.map": "/alx-react/static/js/main.af18a352.js.map",
+    "main.42172688.js.map": "/alx-react/static/js/main.42172688.js.map",
     "787.545aecf5.chunk.js.map": "/alx-react/static/js/787.545aecf5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c6651a72.css",
-    "static/js/main.af18a352.js"
+    "static/js/main.42172688.js"
   ]
 }
