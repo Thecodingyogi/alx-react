@@ -1,2 +1,8 @@
-const app = document.getElementById('app');
-app.innerHTML = '<h1>Hello, Webpack World!</h1>';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const App = () => {
+  return <h1>Hello, React World!</h1>;
+};
+
+ReactDOM.render(<App />);

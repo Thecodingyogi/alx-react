@@ -9,6 +9,9 @@ module.exports = {
     path: path.resolve(__dirname, '../dist/'),
   },
   devtool: 'inline-source-map',
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   devServer: {
     static: {
       directory: path.join(__dirname, '../dist')
@@ -28,6 +31,16 @@ module.exports = {
 	  options: {
 	    name: '[name].[ext]',
 	    outputPath: 'images',
+	  }
+	}
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+	  loader: 'babel-loader',
+	  options: {
+	    presets: ['@babel/preset-env', '@babel/preset-react']
 	  }
 	}
       }
