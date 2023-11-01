@@ -19,30 +19,28 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
-        use: {
-	  loader: 'image-webpack-loader',
-	  options: {
-	    name: '[name].[ext]',
-	    outputPath: 'images',
-	  }
-	}
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        use: [
+          "file-loader",
+          {
+            loader: "image-webpack-loader",
+            options: {
+              bypassOnDebug: true,
+              disable: true,
+            },
+          },
+        ],
       },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-	  loader: 'babel-loader',
-	  options: {
-	    presets: ['@babel/preset-env', '@babel/preset-react']
-	  }
-	}
-      }
-    ]
+        use: ["babel-loader"],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({

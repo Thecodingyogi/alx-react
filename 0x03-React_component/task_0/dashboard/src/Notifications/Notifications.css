@@ -2,14 +2,24 @@
   padding: 1em;
   border: 2px dashed red;
   position: absolute;
-  top: 10px;
-  width: 95vw;
+  top: 1.8em;
+  right: 0;
 }
 
-li[data="default"] {
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menuItem {
+  text-align: right;
+}
+
+[data-notification-type="default"] {
   color: blue;
 }
 
-li[data="urgent"] {
+[data-urgent],
+[data-notification-type="urgent"] {
   color: red;
 }

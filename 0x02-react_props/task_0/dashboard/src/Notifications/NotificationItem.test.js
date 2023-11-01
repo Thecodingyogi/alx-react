@@ -1,25 +1,25 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import Notifications from './Notifications';
-import NotificationItem from './NotificationItem';
+import React from "react";
+import NotificationItem from "./NotificationItem";
+import { shallow } from "enzyme";
 
-test('renders without crashing', () => {
-  render(<NotificationItem type="default" html={{ __html: '<u>test</u>' }} value="test" />);
+describe("rendering components", () => {
+  it("renders NotificationItem component without crashing", () => {
+    const wrapper = shallow(<NotificationItem />);
+
+    expect(wrapper.exists()).toBe(true);
+  });
+
+  it('renders correct html from type="default" value="test" props', () => {
+    const wrapper = shallow(<NotificationItem />);
+
+    wrapper.setProps({ type: "default", value: "test" });
+    expect(wrapper.html()).toEqual('<li data-notification-type="default">test</li>');
+  });
+
+  it('renders correct html from  html="<u>test</u>" props', () => {
+    const wrapper = shallow(<NotificationItem />);
+
+    wrapper.setProps({ html: "<u>test</u>" });
+    expect(wrapper.html()).toEqual('<li data-urgent="true"><u>test</u></li>');
+  });
 });
-
-test('renders correct html with dummy type and value props', () => {
-  const { getByText } = render(<NotificationItem type="default" html={{ __html: '<u>test</u>' }} value="test" />);
-  const item = getByText('test');
-  expect(item).toBeInTheDocument();
-  expect(item.parentElement).toHaveAttribute('data-notification-type', 'default');
-  expect(item.parentElement).toHaveProperty('innerHTML', '<u>test</u>');
-});
-
-test('renders correct html with dummy html prop', () => {
-  const { getByText } = render(<NotificationItem type="default" html={{ __html: '<u>test</u>' }} value="test" />);
-  const item = getByText('test');
-  expect(item).toBeInTheDocument();
-  expect(item.parentElement).toHaveAttribute('data-notification-type', 'default');
-  expect(item.parentElement).toHaveProperty('innerHTML', '<u>test</u>');
-});
-
