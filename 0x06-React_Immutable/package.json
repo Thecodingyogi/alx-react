@@ -15,6 +15,6 @@
     "jest": "^24.9.0"
   },
   "dependencies": {
-    "immutable": "^4.0.0-rc.12"
+    "immutable": "^4.3.4"
   }
 }
