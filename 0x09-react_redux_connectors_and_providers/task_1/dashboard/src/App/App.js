@@ -23,8 +23,6 @@ class App extends React.Component {
     };
 
     this.handleKeyPress = this.handleKeyPress.bind(this);
-    this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
-    this.handleHideDrawer = this.handleHideDrawer.bind(this);
     this.logIn = this.logIn.bind(this);
     this.logOut = this.logOut.bind(this);
   }
@@ -47,14 +45,6 @@ class App extends React.Component {
       alert("Logging you out");
       this.props.logOut();
     }
-  }
-
-  handleDisplayDrawer() {
-    this.setState({ displayDrawer: true });
-  }
-
-  handleHideDrawer() {
-    this.setState({ displayDrawer: false });
   }
 
   componentDidMount() {
@@ -82,6 +72,8 @@ class App extends React.Component {
   }
 
   render() {
+    const { displayDrawer, handleDisplayDrawer, handleHideDrawer } = this.props
+
     return (
       <AppContext.Provider
         value={{
@@ -94,9 +86,9 @@ class App extends React.Component {
             <div className="heading-section">
               <Notifications
                 listNotifications={this.listNotifications}
-                displayDrawer={this.state.displayDrawer}
-                handleDisplayDrawer={this.handleDisplayDrawer}
-                handleHideDrawer={this.handleHideDrawer}
+                displayDrawer={displayDrawer}
+                handleDisplayDrawer={handleDisplayDrawer}
+                handleHideDrawer={handleHideDrawer}
               />
               <Header />
             </div>
@@ -126,6 +118,14 @@ class App extends React.Component {
 const mapStateToProps = (state) => {
   return {
     isLoggedIn: state.get("isUserLoggedIn"),
+    displayDrawer: state.get("isNotificationDrawerVisible")
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleDisplayDrawer: () => dispatch.get("displayNotificationDrawer"),
+    handleHideDrawer: () => dispatch.get("hideNotificationDrawer"),
   };
 };
 
@@ -142,10 +142,16 @@ App.defaultProps = {
   logOut: () => {
     return;
   },
+  displayDrawer: false,
+  handleDisplayDrawer: () => {},
+  handleHideDrawer: () => {}, 
 };
 
 App.propTypes = {
   logOut: PropTypes.func,
+  displayDrawer: PropTypes.bool,
+  handleDisplayDrawer: PropTypes.func,
+  handleHideDrawer: PropTypes.func,
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
